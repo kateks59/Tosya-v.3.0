@@ -110,12 +110,38 @@
         opacity: 0;
       }
     }
+	/* Кнопка всегда сверху справа */
+#mute-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* поверх всего */
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#mute-btn:hover {
+  background: rgba(200, 200, 200, 0.9);
+}
   </style>
 </head>
 <body>
+
  <a  onclick="javascript:location.href='https://kateks59.github.io/HB/';">
  
   <div class="confetti" id="confetti"></div>
+ <!-- Музыка -->
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  Ваш браузер не поддерживает аудио.
+</audio>
+<!-- Кнопка -->
+<button id="mute-btn">🔊</button>
  
 
   <!-- Вступление -->
@@ -148,5 +174,34 @@
       confettiContainer.appendChild(confetti);
     }
   </script>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const muteBtn = document.getElementById('mute-btn');
+
+  window.addEventListener('load', () => {
+    music.play().catch(err => {
+      console.log("Автовоспроизведение заблокировано:", err);
+    });
+  });
+
+  muteBtn.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      muteBtn.textContent = "🔊";
+    } else {
+      music.pause();
+      muteBtn.textContent = "🔇";
+    }
+  });
+</script>
+<script>
+  document.getElementById("start-btn").addEventListener("click", () => {
+    // сохраняем флаг в localStorage
+    localStorage.setItem("playMusic", "true");
+    // переходим на вторую страницу
+    window.location.href = "https://unpkg.com/aos@2.3.1/dist/aos.js";
+  });
+</script>
 </body>
 </html>
