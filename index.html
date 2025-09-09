@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Приглашение на юбилей</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+
+  <style>
+    body {
+     /*background-image: url('хб.jpg');*/
+      background-repeat: repeat-y;           /* повтор по вертикали */
+      background-position: top center;       /* выравнивание по центру */
+      background-size: 360px 640px;                 /* сохраняем исходный размер */
+
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: silver;
+      text-align: center;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px;
+    }
+    h1, h2, p {
+      margin: 15px 0;
+	 
+	font-style: normal;
+      font-size: 28px;
+    }
+    h1 {
+      font-size: 50px
+	  
+      color: black;
+      text-shadow: 0 0 15px silver;
+    }
+    h2 {
+	font-size: 80px;
+	font-size: 28px;
+      color: silver;
+    }
+    .big-30 {
+	font-size: 80px;
+		font-family: "Great Vibes", cursive;
+	font-weight: 10;
+	font-style: normal;
+      font-size: 28px;
+      font-size: 120px;
+      font-weight: 300;
+      color: black;
+      text-shadow: 0 0 20px silver, 0 0 30px #fff;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 30px;
+      background: silver;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 10px silver;
+    }
+    .btn:hover {
+      background: white;
+      color: black;
+      box-shadow: 0 0 20px #fff;
+    }
+    .emoji {
+      font-size: 32%;
+      margin: 10%;
+    }
+    /* Конфетти */
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: silver;
+      opacity: 0.8;
+      transform: rotate(0deg);
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+ <a  onclick="javascript:location.href='https://kateks59.github.io/HB/';">
+ 
+  <div class="confetti" id="confetti"></div>
+ 
+
+  <!-- Вступление -->
+  <section data-aos="fade-up">
+  
+    <h1>Вы получили</h1>
+   
+    <div class="big-30">Приглашение</div>
+    <p>Коснись для просмотра экрана </p>
+  </section>
+
+</a>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
+
+    // Конфетти
+    const confettiContainer = document.getElementById('confetti');
+    const colors = ['silver', 'white', '#ddd'];
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti-piece');
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      confetti.style.width = confetti.style.height = (Math.random() * 8 + 5) + 'px';
+      confettiContainer.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
